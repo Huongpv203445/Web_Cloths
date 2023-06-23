@@ -5,178 +5,178 @@ const menu = [
         title: 'Boots Da Chelsea Màu Đen',
         category: 'shoes',
         price: '850.000 ₫',
-        img: '../images/pro1.webp',
-        img1: '../images/pro1.1.webp',
-        img2: '../images/pro1.2.webp',
+        img: './images/pro1.webp',
+        img1: './images/pro1.1.webp',
+        img2: './images/pro1.2.webp',
     },
     {
         id: 2,
         title: 'Ủng dây xích màu đen',
         category: 'shoes',
         price: '2.150.000 ₫',
-        img: '../images/pro2.jpg',
-        img1: '../images/pro2.1.jpg',
-        img2: '../images/pro2.2.jpg',
+        img: './images/pro2.jpg',
+        img1: './images/pro2.1.jpg',
+        img2: './images/pro2.2.jpg',
     },
     {
         id: 3,
         title: 'Thắt lưng 2 mặt | Phiên bản giới hạn',
         category: 'accessories',
         price: '750.000 ₫',
-        img: '../images/pro3.jpg',
-        img1: '../images/pro3.1.jpg',
-        img2: '../images/pro3.2.jpg',
+        img: './images/pro3.jpg',
+        img1: './images/pro3.1.jpg',
+        img2: './images/pro3.2.jpg',
     },
     {
         id: 4,
         title: 'Thắt lưng Rowan Ajon [B.L 2]',
         category: 'accessories',
         price: '450.000 ₫',
-        img: '../images/pro4.jpg',
-        img1: '../images/pro4.1.jpg',
+        img: './images/pro4.jpg',
+        img1: './images/pro4.1.jpg',
     },
     {
         id: 5,
         title: 'Ví dài Rown đơn bản',
         category: 'accessories',
         price: '450.000 ₫',
-        img: '../images/pro5.jpg',
-        img1: '../images/pro5.1.webp',
-        img2: '../images/pro5.2.webp',
+        img: './images/pro5.jpg',
+        img1: './images/pro5.1.webp',
+        img2: './images/pro5.2.webp',
     },
     {
         id: 6,
         title: 'Áo Sơ Mi Âm Thanh',
         category: 'clothing',
         price: '420.000 ₫',
-        img: '../images/pro6.jpg',
-        img1: '../images/pro6.1.jpg',
-        img2: '../images/pro6.2.jpg',
+        img: './images/pro6.jpg',
+        img1: './images/pro6.1.jpg',
+        img2: './images/pro6.2.jpg',
     },
     {
         id: 7,
         title: 'Boots da có khóa kéo màu đen',
         category: 'shoes',
         price: '1.950.000 ₫',
-        img: '../images/pro7.jpg',
-        img1: '../images/pro7.1.jpg',
-        img2: '../images/pro7.2.jpg',
+        img: './images/pro7.jpg',
+        img1: './images/pro7.1.jpg',
+        img2: './images/pro7.2.jpg',
     },
     {
         id: 8,
         title: 'Boots Da Màu Đen',
         category: 'shoes',
         price: '2.150.000 ₫',
-        img: '../images/pro8.jpg',
-        img1: '../images/pro8.1.jpg',
-        img2: '../images/pro8.2.png',
+        img: './images/pro8.jpg',
+        img1: './images/pro8.1.jpg',
+        img2: './images/pro8.2.png',
     },
     {
         id: 9,
         title: 'Boots Chelsea màu đen',
         category: 'shoes',
         price: '850.000 ₫',
-        img: '../images/pro9.jpg',
-        img1: '../images/pro9.1.jpg',
-        img2: '../images/pro9.2.jpg',
+        img: './images/pro9.jpg',
+        img1: './images/pro9.1.jpg',
+        img2: './images/pro9.2.jpg',
     },
     {
         id: 10,
         title: 'Boots Chelsea da lộn màu đen',
         category: 'shoes',
         price: '850.000 ₫',
-        img: '../images/pro10.jpg',
-        img1: '../images/pro10.1.jpg',
-        img2: '../images/pro10.2.jpg',
+        img: './images/pro10.jpg',
+        img1: './images/pro10.1.jpg',
+        img2: './images/pro10.2.jpg',
     },
     {
         id: 11,
         title: 'Boots Chelsea da lộn màu be',
         category: 'shoes',
         price: '850.000 ₫',
-        img: '../images/pro11.jpg',
-        img1: '../images/pro11.1.jpg',
-        img2: '../images/pro11.2.jpg',
+        img: './images/pro11.jpg',
+        img1: './images/pro11.1.jpg',
+        img2: './images/pro11.2.jpg',
     },
     {
         id: 12,
         title: 'Boots da Chelsea màu đen',
         category: 'shoes',
         price: '1.590.000 ₫',
-        img: '../images/pro12.jpg',
-        img1: '../images/pro12.1.jpg',
-        img2: '../images/pro12.2.jpg',
+        img: './images/pro12.jpg',
+        img1: './images/pro12.1.jpg',
+        img2: './images/pro12.2.jpg',
     },
     {
         id: 13,
         title: 'Boots Theia khóa kéo bằng vàng',
         category: 'shoes',
         price: '1.990.000 ₫',
-        img: '../images/pro13.jpg',
-        img1: '../images/pro13.1.jpg',
-        img2: '../images/pro13.2.jpg',
+        img: './images/pro13.jpg',
+        img1: './images/pro13.1.jpg',
+        img2: './images/pro13.2.jpg',
     },
     {
         id: 14,
         title: 'Boots da lộn',
         category: 'shoes',
         price: '2.150.000 ₫',
-        img: '../images/pro14.jpg',
-        img1: '../images/pro14.1.jpg',
-        img2: '../images/pro14.2.jpg',
+        img: './images/pro14.jpg',
+        img1: './images/pro14.1.jpg',
+        img2: './images/pro14.2.jpg',
     },
     {
         id: 15,
         title: 'Boots Snake khóa kéo',
         category: 'shoes',
         price: '2.390.000 ₫',
-        img: '../images/pro15.jpg',
-        img1: '../images/pro15.1.jpg',
-        img2: '../images/pro15.2.jpg',
+        img: './images/pro15.jpg',
+        img1: './images/pro15.1.jpg',
+        img2: './images/pro15.2.jpg',
     },
     {
         id: 16,
         title: 'Quần Rowan Jean Skinny màu đen',
         category: 'clothing',
         price: '500.000 ₫',
-        img: '../images/pro16.jpg',
-        img1: '../images/pro16.1.jpg',
-        img2: '../images/pro16.2.webp',
+        img: './images/pro16.jpg',
+        img1: './images/pro16.1.jpg',
+        img2: './images/pro16.2.webp',
     },
     {
         id: 17,
         title: 'Rowan Waxed Skinny Jeans màu đen',
         category: 'clothing',
         price: '500.000 ₫',
-        img: '../images/pro17.jpg',
-        img1: '../images/pro17.1.jpg',
-        img2: '../images/pro17.2.jpg',
+        img: './images/pro17.jpg',
+        img1: './images/pro17.1.jpg',
+        img2: './images/pro17.2.jpg',
     },
     {
         id: 18,
         title: 'Thắt lưng Rowan Aiioy [B.L]',
         category: 'accessories',
         price: '450.000 ₫',
-        img: '../images/pro18.jpg',
-        img1: '../images/pro18.1.jpg',
-        img2: '../images/pro18.2.jpg',
+        img: './images/pro18.jpg',
+        img1: './images/pro18.1.jpg',
+        img2: './images/pro18.2.jpg',
     },
     {
         id: 19,
         title: 'Thắt lưng Rowan Aiioy [BN]',
         category: 'accessories',
         price: '450.000 ₫',
-        img: '../images/pro19.jpg',
-        img1: '../images/pro19.1.jpg',
+        img: './images/pro19.jpg',
+        img1: './images/pro19.1.jpg',
     },
     {
         id: 20,
         title: 'Túi Rowan Gile (Da Thật)',
         category: 'clothing',
         price: '750.000 ₫',
-        img: '../images/pro20.jpg',
-        img1: '../images/pro20.1.jpg',
-        img2: '../images/pro20.2.jpg',
+        img: './images/pro20.jpg',
+        img1: './images/pro20.1.jpg',
+        img2: './images/pro20.2.jpg',
     },
 ]
 const row = document.querySelector('.row')
@@ -290,28 +290,28 @@ function renderProductDetail(productClick) {
                     <div class="conmmition">
                         <div class="conmmition-container">
                             <div class="small-commit">
-                                <img src="../images/cmit1.png" alt="">
+                                <img src="./images/cmit1.png" alt="">
                                 <div class="commit-text">
                                     <h4>cam kết chính hãng</h4>
                                     <p>Hàng chính hãng  ₫úng chất lượng</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit2.png" alt="">
+                                <img src="./images/cmit2.png" alt="">
                                 <div class="commit-text">
                                     <h4>giao hàng toàn quốc</h4>
                                     <p>Ship COD toàn quốc</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit3.png" alt="">
+                                <img src="./images/cmit3.png" alt="">
                                 <div class="commit-text">
                                     <h4>xem hàng - thanh toán</h4>
                                     <p>Nhận hàng tận tay mới thanh toán</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit4.png" alt="">
+                                <img src="./images/cmit4.png" alt="">
                                 <div class="commit-text">
                                     <h4> ₫ổi trả nhanh chóng</h4>
                                     <p> ₫ổi hàng nếu không vừa ý</p>

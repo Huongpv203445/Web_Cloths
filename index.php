@@ -5,40 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-<<<<<<< HEAD
-<<<<<<<< HEAD:index.php
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css">
-    <title>ROWAN SHOP </title>
-========
-=======
->>>>>>> second_branch
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css">
     <title>ROWAN</title>
-<<<<<<< HEAD
->>>>>>>> second_branch:index copy.php
-=======
->>>>>>> second_branch
 </head>
 <body>
     <!-- HEADER -->
     <section id="header">
         <div class="header-container">
-<<<<<<< HEAD
-            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
-=======
-            <a href="index.html" class="logo"><img src="../images/logo.png" alt=""></a>
->>>>>>> second_branch
+            <a href="index.php" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="right-box">
                 <div class="login">
-                    <div><a href="login.html">ĐĂNG NHẬP</a> / <a href="login.html">ĐĂNG KÝ</a></div>
+                    <div><a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a></div>
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -54,23 +38,23 @@
         <ul class="nav-list">
             <li class="nav-item">
                 <i class="fa-solid fa-house"></i>
-                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="index.php" class="nav-link">Trang chủ</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-door-open"></i>
-                <a href="introduction.html" class="nav-link">Giới thiệu</a>
+                <a href="introduction.php" class="nav-link">Giới thiệu</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-shirt"></i>
-                <a href="product.html" class="nav-link">Sản phẩm</a>
+                <a href="product.php" class="nav-link">Sản phẩm</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-book"></i>
-                <a href="policy.html" class="nav-link">Chính sách</a>
+                <a href="policy.php" class="nav-link">Chính sách</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-phone"></i>
-                <a href="contact.html" class="nav-link">Liên hệ</a>
+                <a href="contact.php" class="nav-link">Liên hệ</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-people-group"></i>
@@ -89,7 +73,6 @@
                 <input type="radio" name="raido-btn" id="radio3">
     
                 <div class="slide first">
-<<<<<<< HEAD
                     <img src="./images/slide1.jpg" alt="">
                 </div>
                 <div class="slide">
@@ -97,15 +80,6 @@
                 </div>
                 <div class="slide">
                     <img src="./images/slide3.jpg" alt="">
-=======
-                    <img src="../images/slide1.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="../images/slide2.jpg" alt="">
-                </div>
-                <div class="slide">
-                    <img src="../images/slide3.jpg" alt="">
->>>>>>> second_branch
                 </div>
     
                 <!-- Auto navigation -->
@@ -135,12 +109,8 @@
         </div>
         <div class="catagories-box">
             <div class="catagory-box">
-                <a href="product.html" class="box-shoe">
-<<<<<<< HEAD
+                <a href="product.php" class="box-shoe">
                     <img src="./images/shoebox.jpg" alt="">
-=======
-                    <img src="../images/shoebox.jpg" alt="">
->>>>>>> second_branch
                     <div class="box-desc">
                         <span>GIÀY</span>
                         <button class="catagory-btn">Xem chi tiết</button>
@@ -148,12 +118,8 @@
                 </a>
             </div>
             <div class="catagory-box">
-                <a href="product.html" class="box-clothing">
-<<<<<<< HEAD
+                <a href="product.php" class="box-clothing">
                     <img src="./images/clothingbox.jpg" alt="">
-=======
-                    <img src="../images/clothingbox.jpg" alt="">
->>>>>>> second_branch
                     <div class="box-desc">
                         <span>QUẦN ÁO</span>
                         <button class="catagory-btn">Xem chi tiết</button>
@@ -161,12 +127,8 @@
                 </a>
             </div>
             <div class="catagory-box">
-                <a href="product.html" class="box-accessories">
-<<<<<<< HEAD
+                <a href="product.php" class="box-accessories">
                     <img src="./images/accessoriesbox.jpg" alt="">
-=======
-                    <img src="../images/accessoriesbox.jpg" alt="">
->>>>>>> second_branch
                     <div class="box-desc">
                         <span>PHỤ KIỆN</span>
                         <button class="catagory-btn">Xem chi tiết</button>
@@ -186,13 +148,9 @@
         </div>
         <div class="products">
             <div class="row">
-                <!-- <a href="product.html" class="product">
+                <!-- <a href="product.php" class="product">
                     <div class="pro-top">
-<<<<<<< HEAD
                         <img src="./images/pro1.webp" alt="">
-=======
-                        <img src="../images/pro1.webp" alt="">
->>>>>>> second_branch
                     </div>
                     <div class="pro-bottom">
                         <p class="pro-title">leather chelsea boot in black</p>
@@ -208,7 +166,7 @@
                 </a> -->
             </div>
         </div>
-        <a href="product.html" class="more-btn">xem nhiều hơn</a>
+        <a href="product.php" class="more-btn">xem nhiều hơn</a>
     </section>
     <!-- END TRENDING -->
 
@@ -217,19 +175,11 @@
         <!-- <div class="detail">
             <div class="detail-container">
                 <div class="detail-left">
-<<<<<<< HEAD
                     <img class="main-img" src="./images/pro10.jpg" alt="">
                     <div class="small-img">
                         <img src="./images/pro10.jpg" alt="">
                         <img src="./images/pro9.jpg" alt="">
                         <img src="./images/pro8.jpg" alt="">
-=======
-                    <img class="main-img" src="../images/pro10.jpg" alt="">
-                    <div class="small-img">
-                        <img src="../images/pro10.jpg" alt="">
-                        <img src="../images/pro9.jpg" alt="">
-                        <img src="../images/pro8.jpg" alt="">
->>>>>>> second_branch
                     </div>
                 </div>
                 <div class="detail-right">
@@ -246,44 +196,28 @@
                     <div class="conmmition">
                         <div class="conmmition-container">
                             <div class="small-commit">
-<<<<<<< HEAD
                                 <img src="./images/cmit1.png" alt="">
-=======
-                                <img src="../images/cmit1.png" alt="">
->>>>>>> second_branch
                                 <div class="commit-text">
                                     <h4>cam kết chính hãng</h4>
                                     <p>Hàng chính hãng đúng chất lượng</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-<<<<<<< HEAD
                                 <img src="./images/cmit2.png" alt="">
-=======
-                                <img src="../images/cmit2.png" alt="">
->>>>>>> second_branch
                                 <div class="commit-text">
                                     <h4>giao hàng toàn quốc</h4>
                                     <p>Ship COD toàn quốc</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-<<<<<<< HEAD
                                 <img src="./images/cmit3.png" alt="">
-=======
-                                <img src="../images/cmit3.png" alt="">
->>>>>>> second_branch
                                 <div class="commit-text">
                                     <h4>xem hàng - thanh toán</h4>
                                     <p>Nhận hàng tận tay mới thanh toán</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-<<<<<<< HEAD
                                 <img src="./images/cmit4.png" alt="">
-=======
-                                <img src="../images/cmit4.png" alt="">
->>>>>>> second_branch
                                 <div class="commit-text">
                                     <h4>đổi trả nhanh chóng</h4>
                                     <p>Đổi hàng nếu không vừa ý</p>
@@ -331,11 +265,7 @@
             <div class="cart-body">
                 <!-- <div class="cart-item">
                     <div class="cart-content">
-<<<<<<< HEAD
                         <img src="./images/pro1.webp" alt="">
-=======
-                        <img src="../images/pro1.webp" alt="">
->>>>>>> second_branch
                         <div class="cart-info">
                             <h4>leather harness boots in black</h4>
                             <div>
@@ -386,11 +316,7 @@
     <section id="footer">
         <div class="footer-container">
             <div class="footer-left">
-<<<<<<< HEAD
                 <img src="./images/footerlogo.png" alt="">
-=======
-                <img src="../images/footerlogo.png" alt="">
->>>>>>> second_branch
                 <div class="footer-info">
                     <div class="footer-desc">
                         <p>Chuyên cung cấp các sản phẩm <br> Boots da bò thật.</p>
@@ -412,10 +338,10 @@
                         </div>
                     </div>
                     <ul>
-                        <li><a href="index.html">Giới thiệu</a></li>
-                        <li><a href="products.html">Sản phẩm</a></li>
+                        <li><a href="index.php">Giới thiệu</a></li>
+                        <li><a href="products.php">Sản phẩm</a></li>
                         <li><a href="">Phản hồi</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="contact.php">Liên hệ</a></li>
                         <li><a href="https://www.facebook.com/groups/283978698958770/">Cộng đồng</a></li>
                     </ul>
                     <div>
@@ -434,11 +360,7 @@
             </div>
             <div class="footer-right">
                 <a href="https://www.google.com/maps/dir//21.0062059,105.8431067/@21.0061786,105.8417699,18.03z/data=!4m2!4m1!3e0?entry=ttu">
-<<<<<<< HEAD
                     <img src="./images/dhbk.png" alt="">
-=======
-                    <img src="../images/dhbk.png" alt="">
->>>>>>> second_branch
                 </a>
             </div>
         </div>
@@ -504,15 +426,8 @@
         <div class="overlay"></div>
     </section>
     <!-- END MODAL -->
-<<<<<<< HEAD
-<<<<<<<< HEAD:index.php
     <script src="./JS/index.js"></script>
     <script type="module" src="./JS/products.js"></script>
-========
     <script src="../JS/public.js"></script>
->>>>>>>> second_branch:index copy.php
-=======
-    <script src="../JS/public.js"></script>
->>>>>>> second_branch
 </body>
 </html>

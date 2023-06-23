@@ -14,14 +14,14 @@
     <!-- HEADER -->
     <section id="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
+            <a href="index.php" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="right-box">
                 <div class="login">
-                    <div><a href="login.html">ĐĂNG NHẬP</a> / <a href="login.html">ĐĂNG KÝ</a></div>
+                    <div><a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a></div>
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -37,23 +37,23 @@
         <ul class="nav-list">
             <li class="nav-item">
                 <i class="fa-solid fa-house"></i>
-                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="index.php" class="nav-link">Trang chủ</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-door-open"></i>
-                <a href="introduction.html" class="nav-link">Giới thiệu</a>
+                <a href="introduction.php" class="nav-link">Giới thiệu</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-shirt"></i>
-                <a href="product.html" class="nav-link">Sản phẩm</a>
+                <a href="product.php" class="nav-link">Sản phẩm</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-book"></i>
-                <a href="policy.html" class="nav-link">Chính sách</a>
+                <a href="policy.php" class="nav-link">Chính sách</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-phone"></i>
-                <a href="contact.html" class="nav-link">Liên hệ</a>
+                <a href="contact.php" class="nav-link">Liên hệ</a>
             </li>
             <li class="nav-item">
                 <i class="fa-solid fa-people-group"></i>
@@ -67,7 +67,7 @@
     <section id="introduction">
         <div class="sub-title">
             <h1>Giới thiệu</h1>
-            <p><a href="index.html">trang chủ </a>  /  giới thiệu</p>
+            <p><a href="index.php">trang chủ </a>  /  giới thiệu</p>
         </div>
         <div class="intro-container">
             <div class="intro-box">
@@ -134,10 +134,10 @@
                         </div>
                     </div>
                     <ul>
-                        <li><a href="index.html">Giới thiệu</a></li>
-                        <li><a href="products.html">Sản phẩm</a></li>
+                        <li><a href="index.php">Giới thiệu</a></li>
+                        <li><a href="products.php">Sản phẩm</a></li>
                         <li><a href="">Feedback</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="contact.php">Liên hệ</a></li>
                         <li><a href="https://www.facebook.com/groups/283978698958770/">Cộng đồng</a></li>
                     </ul>
                     <div>
