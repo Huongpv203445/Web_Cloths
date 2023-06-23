@@ -386,6 +386,10 @@
     </section>
     <!-- END MODAL -->
 
+<<<<<<< HEAD
     <script type="module" src="./JS/products.js"></script>
+=======
+    <script type="module" src="../JS/public.js"></script>
+>>>>>>> second_branch
 </body>
 </html>
