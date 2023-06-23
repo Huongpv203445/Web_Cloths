@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <title>CHÍNH SÁCH | ROWAN</title>
 </head>
 <body>
     <!-- HEADER -->
     <section id="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -141,7 +141,7 @@
     <section id="footer">
         <div class="footer-container">
             <div class="footer-left">
-                <img src="../images/footerlogo.png" alt="">
+                <img src="./images/footerlogo.png" alt="">
                 <div class="footer-info">
                     <div class="footer-desc">
                         <p>Chuyên cung cấp các sản phẩm <br> Boots da bò thật.</p>
@@ -185,7 +185,7 @@
             </div>
             <div class="footer-right">
                 <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+%C4%90i%E1%BB%87n+L%E1%BB%B1c/@21.046388,105.7827549,17z/data=!3m1!4b1!4m5!3m4!1s0x3135abb158a2305d:0x5c357d21c785ea3d!8m2!3d21.046388!4d105.7849436?hl=vi">
-                    <img src="../images/dhdl.jpg" alt="">
+                    <img src="./images/dhdl.jpg" alt="">
                 </a>
             </div>
         </div>
@@ -251,6 +251,6 @@
         <div class="overlay"></div>
     </section>
     <!-- END MODAL -->
-    <script src="../JS/policy.js"></script>
+    <script src="./JS/policy.js"></script>
 </body>
 </html>

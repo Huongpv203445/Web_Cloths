@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <title>LIÊN HỆ | ROWAN</title>
 </head>
 <body>
     <!-- HEADER -->
      <section id="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="contact-right">
                     <a href="https://www.google.com/maps/dir//21.0062059,105.8431067/@21.0061786,105.8417699,18.03z/data=!4m2!4m1!3e0?entry=ttu">
-                        <img src="../images/dhbk.png" alt="">
+                        <img src="./images/dhbk.png" alt="">
                     </a>
                 </div>
             </div>
@@ -185,7 +185,7 @@
     <section id="footer">
         <div class="footer-container">
             <div class="footer-left">
-                <img src="../images/footerlogo.png" alt="">
+                <img src="./images/footerlogo.png" alt="">
                 <div class="footer-info">
                     <div class="footer-desc">
                         <p>Chuyên cung cấp các sản phẩm <br>Laptop chính hãng.</p>
@@ -229,7 +229,7 @@
             </div>
             <div class="footer-right">
                 <a href="https://www.google.com/maps/dir//21.0062059,105.8431067/@21.0061786,105.8417699,18.03z/data=!4m2!4m1!3e0?entry=ttu">
-                    <img src="../images/dhbk.png" alt="">
+                    <img src="./images/dhbk.png" alt="">
                 </a>
             </div>
         </div>
@@ -240,6 +240,6 @@
     </section>
     <!-- END FOOTER -->
 
-    <script src="../JS/contact.js"></script>
+    <script src="./JS/contact.js"></script>
 </body>
 </html>

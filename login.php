@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <title>LIÊN HỆ | ROWAN</title>
 </head>
 <body>
     <!-- HEADER -->
     <section id="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -110,6 +110,6 @@
     </section>
     <!-- END LOGIN / SIGN UP -->
 
-    <script src="../JS/login.js"></script>
+    <script src="./JS/login.js"></script>
 </body>
 </html>

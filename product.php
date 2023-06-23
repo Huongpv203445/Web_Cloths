@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css">
     <title>SẢN PHẨM | ROWAN</title>
@@ -15,7 +15,7 @@
     <!-- HEADER -->
     <section id="header">
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="../images/logo.png" alt=""></a>
+            <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
                 <input type="text" placeholder="Tìm Kiếm">
                 <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -74,28 +74,28 @@
             <div class="category">
                 <div class="cate-container">
                     <a class="cate-box" data-id="all">
-                        <img src="../images/slide1.jpg" alt="">
+                        <img src="./images/slide1.jpg" alt="">
                         <div class="cate-text">
                             <h4 class="click">all</h4>
                             <p>30 sản phẩm</p>
                         </div>
                     </a>
                     <a class="cate-box" data-id="shoes">
-                        <img src="../images/shoebox.jpg" alt="">
+                        <img src="./images/shoebox.jpg" alt="">
                         <div class="cate-text">
                             <h4>Giày</h4>
                             <p>11 sản phẩm</p>
                         </div>
                     </a>
                     <a class="cate-box" data-id="clothing">
-                        <img src="../images/clothingbox.jpg" alt="">
+                        <img src="./images/clothingbox.jpg" alt="">
                         <div class="cate-text">
                             <h4>Quần áo</h4>
                             <p>3 sản phẩm</p>
                         </div>
                     </a>
                     <a class="cate-box" data-id="accessories">
-                        <img src="../images/accessoriesbox.jpg" alt="">
+                        <img src="./images/accessoriesbox.jpg" alt="">
                         <div class="cate-text">
                             <h4>Phụ Kiện</h4>
                             <p>7 sản phẩm</p>
@@ -109,7 +109,7 @@
             <div class="row">
                 <!-- <a href="product.html" class="product">
                     <div class="pro-top">
-                        <img src="../images/pro1.webp" alt="">
+                        <img src="./images/pro1.webp" alt="">
                     </div>
                     <div class="pro-bottom">
                         <p class="pro-title">leather chelsea boot in black</p>
@@ -133,11 +133,11 @@
         <!-- <div class="detail">
             <div class="detail-container">
                 <div class="detail-left">
-                    <img class="main-img" src="../images/pro10.jpg" alt="">
+                    <img class="main-img" src="./images/pro10.jpg" alt="">
                     <div class="small-img">
-                        <img src="../images/pro10.jpg" alt="">
-                        <img src="../images/pro9.jpg" alt="">
-                        <img src="../images/pro8.jpg" alt="">
+                        <img src="./images/pro10.jpg" alt="">
+                        <img src="./images/pro9.jpg" alt="">
+                        <img src="./images/pro8.jpg" alt="">
                     </div>
                 </div>
                 <div class="detail-right">
@@ -154,28 +154,28 @@
                     <div class="conmmition">
                         <div class="conmmition-container">
                             <div class="small-commit">
-                                <img src="../images/cmit1.png" alt="">
+                                <img src="./images/cmit1.png" alt="">
                                 <div class="commit-text">
                                     <h4>cam kết chính hãng</h4>
                                     <p>Hàng chính hãng đúng chất lượng</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit2.png" alt="">
+                                <img src="./images/cmit2.png" alt="">
                                 <div class="commit-text">
                                     <h4>giao hàng toàn quốc</h4>
                                     <p>Ship COD toàn quốc</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit3.png" alt="">
+                                <img src="./images/cmit3.png" alt="">
                                 <div class="commit-text">
                                     <h4>xem hàng - thanh toán</h4>
                                     <p>Nhận hàng tận tay mới thanh toán</p>
                                 </div>
                             </div>
                             <div class="small-commit">
-                                <img src="../images/cmit4.png" alt="">
+                                <img src="./images/cmit4.png" alt="">
                                 <div class="commit-text">
                                     <h4>đổi trả nhanh chóng</h4>
                                     <p>Đổi hàng nếu không vừa ý</p>
@@ -223,7 +223,7 @@
             <div class="cart-body">
                 <!-- <div class="cart-item">
                     <div class="cart-content">
-                        <img src="../images/pro1.webp" alt="">
+                        <img src="./images/pro1.webp" alt="">
                         <div class="cart-info">
                             <h4>leather harness boots in black</h4>
                             <span class = "size">Size: </span>
@@ -275,7 +275,7 @@
     <section id="footer">
         <div class="footer-container">
             <div class="footer-left">
-                <img src="../images/footerlogo.png" alt="">
+                <img src="./images/footerlogo.png" alt="">
                 <div class="footer-info">
                     <div class="footer-desc">
                         <p>Chuyên cung cấp các sản phẩm <br> Boots da bò thật.</p>
@@ -319,7 +319,7 @@
             </div>
             <div class="footer-right">
                 <a href="https://www.google.com/maps/dir//21.0062059,105.8431067/@21.0061786,105.8417699,18.03z/data=!4m2!4m1!3e0?entry=ttu">
-                    <img src="../images/dhbk.png" alt="">
+                    <img src="./images/dhbk.png" alt="">
                 </a>
             </div>
         </div>
@@ -386,6 +386,6 @@
     </section>
     <!-- END MODAL -->
 
-    <script type="module" src="../JS/products.js"></script>
+    <script type="module" src="./JS/products.js"></script>
 </body>
 </html>
