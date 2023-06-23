@@ -90,20 +90,32 @@
                     </div>
 
                     <div class="register-form">
-                        <h1>đăng kí</h1>
+                        <h1>đăng ký</h1>
                         <form id="register-form" action="">
                             <label for="email">Tên tài khoản hoặc địa chỉ email <span>*</span></label>
                             <input id="email" type="text" placeholder="Email..." required>
+                            
                             <label for="pass-word">Mật khẩu <span>*</span></label>
                             <input id="pass-word" type="password" placeholder="Mật khẩu..." required>
-                            <button class="login-btn" type="submit">đăng kí</button>
-                        </form>
+                            
+                            <label for="username">Tên người dùng <span>*</span></label>
+                            <input id="username" type="text" placeholder="Tên người dùng" required>
+                            
+                            <label for="address">Địa chỉ <span>*</span></label>
+                            <input id="address" type="text" placeholder="Địa chỉ của bạn" required>
+                            
+                            <label for="phonenumber">Số điện thoại <span>*</span></label>
+                            <input id="phonenumber" type="text" placeholder="Số điện thoại của bạn" required>
+                            
+                            <button class="login-btn" type="submit">Đăng ký</button>
+                          </form>
+                          
                     </div>
                 </div>
                 <div class="login-right">
-                    <h1>đăng kí</h1>
+                    <h1>đăng ký</h1>
                     <p>Đăng ký trang web này cho phép bạn truy cập trạng thái và lịch sử đơn hàng của mình. Chỉ cần điền vào các trường bên dưới và chúng tôi sẽ nhanh chóng thiết lập tài khoản mới cho bạn. Chúng tôi sẽ chỉ hỏi bạn những thông tin cần thiết để giúp quá trình mua hàng nhanh hơn và dễ dàng hơn.</p>
-                    <a class="register-btn">đăng kí</a>
+                    <a class="register-btn">đăng ký</a>
                 </div>
             </div>
         </div>

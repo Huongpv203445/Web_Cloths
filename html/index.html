@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css">
     <title>ROWAN</title>
 </head>
 <body>
@@ -24,7 +26,7 @@
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span id = "count_cart">0</span>
+                    <span id="cart-count">0</span>
                 </a>
             </div>
         </div>
@@ -102,7 +104,7 @@
     <section id="arrival">
         <div class="title">
             <h1>Hàng Mới Về</h1>
-            <span>Mới Nhất 2023</span>
+            <span>Mới Nhất 2020</span>
             <h2> DANH MỤC ROWAN</h2>   
         </div>
         <div class="catagories-box">
@@ -181,8 +183,8 @@
                     </div>
                 </div>
                 <div class="detail-right">
-                    <h1 class="detail-title">Áo Sơ Mi Âm Thanh</h1>
-                    <p class="detail-price">420.000 ₫</p>
+                    <h1 class="detail-title">Sound of Soul Shirt</h1>
+                    <p class="detail-price">420.000đ</p>
                     <ul>
                         <li>Chất liệu: Vải Kate lụa</li>
                         <li>Màu sắc: Đen họa tiết</li>
@@ -224,13 +226,13 @@
                         </div>
                     </div>
                     <div class="size-pickup">
-                        <span>Size: </span>
+                        <span class = "size">Size: </span>
                         <select name="" id="">
                             <option value="">Chọn một tùy chọn</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
-                            <option value="">L</option>
-                            <option value="">XL</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
                         </select>
                     </div>
                     <div class="quantity">
@@ -424,7 +426,6 @@
         <div class="overlay"></div>
     </section>
     <!-- END MODAL -->
-    <script src="../JS/index.js"></script>
-    <script type="module" src="../JS/products.js"></script>
+    <script src="../JS/public.js"></script>
 </body>
 </html>
