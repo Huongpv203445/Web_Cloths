@@ -135,7 +135,7 @@
     </section>
     <!-- END MODAL -->
     <script src="./JS/index.js"></script>
-    <!-- <script type="module" src="./JS/products.js"></script> -->
+    <script type="module" src="./JS/products.js"></script>
     <script src="../JS/public.js"></script>
     <script src="./JS/login.js"></script>
 </body>

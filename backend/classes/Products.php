@@ -33,8 +33,12 @@ class Products{
              </div>
          </a>';
        }
-       
-
     }
+    public function listProducts(){
+        $stmt=$this->pdo->prepare("SELECT * FROM `products`");
+        $stmt->execute();
+        $products=$stmt->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+       }
 }
 ?>
