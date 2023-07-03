@@ -1,7 +1,11 @@
 <?php $pageTitle='Home | ROMAN'; ?>
 <?php require_once 'header.php'; ?>
-
-
+<?php require_once "backend/initialize.php";?>
+<?php 
+    // var_dump($_SESSION);
+    echo WWW_ROOT;
+?>
+    
     <!-- SLIDER -->
     <section id="slide-container">
         <div class="slider">
@@ -102,6 +106,24 @@
                         <p class="pro-price">850.000 ₫</p>
                     </div>
                 </a> -->
+                <!-- <a class="product" data-id="1">
+                    <div class="pro-top">
+                        <img src="./images/pro1.webp" alt="">
+                    </div>
+                    <div class="pro-bottom">
+                        <p class="pro-title">leather chelsea boot in black</p>
+                        <div class="pro-rate">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="pro-price">850.000 ₫</p>
+                    </div>
+                </a> -->
+                <?php $loadProduct->products();?>
+                
             </div>
         </div>
         <a href="product.php" class="more-btn">xem nhiều hơn</a>
