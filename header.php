@@ -1,3 +1,7 @@
+<?php require_once "backend/initialize.php";
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +23,19 @@
         <div class="header-container">
             <a href="index.php" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
-                <input type="text" placeholder="Tìm Kiếm">
-                <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form action="product.php" method = "GET">
+                    <input type="text" placeholder="Tìm Kiếm" name = 'q'>
+                    <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
             </div>
             <div class="right-box">
                 <div class="login">
-                    <div><a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a></div>
+                <div>
+                    <?php if(!isset($_SESSION['userLoggedIn'])) {
+                        echo '<a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a>';
+                    } else {
+                        echo '<a href="">Hi, '.$user->username.' </a> / <a href="logout.php">ĐĂNG XUẤT</a>';
+                    }?>
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>

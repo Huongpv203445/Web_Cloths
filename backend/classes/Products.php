@@ -39,6 +39,34 @@ class Products{
         $stmt->execute();
         $products=$stmt->fetchAll(PDO::FETCH_OBJ);
         return $products;
+    }
+
+
+    public function filterProducts($q){
+        $stmt=$this->pdo->prepare("SELECT * FROM `products` WHERE `name_product` LIKE '%".$q.'%\'');
+        // $stmt->bindValue(":q",'%'.$q.'%');
+        // $search = '%'.$q.'%';
+        // $stmt->bindParam(":q",$search);
+        $stmt->execute();
+        $products=$stmt->fetchAll(PDO::FETCH_OBJ);
+        foreach($products as $product){
+             echo '<a class="product" data-id="'.$product->product_id.'">
+             <div class="pro-top">
+                 <img src="'.url_for($product->image_1).'" alt="">
+             </div>
+             <div class="pro-bottom">
+                 <p class="pro-title">'.$product->name_product.'</p>
+                 <div class="pro-rate">
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                     <i class="fa-solid fa-star"></i>
+                 </div>
+                 <p class="pro-price">'.$product->price.' VND</p>
+             </div>
+         </a>';
        }
+    }
 }
 ?>

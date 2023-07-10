@@ -2,8 +2,20 @@
 
 <?php require_once "backend/initialize.php";?>
 <?php 
-    // var_dump($_SESSION);
-    // echo WWW_ROOT;
+    $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($_SESSION['userLoggedIn'])) : json_encode(array());
+    $userIsLogged = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : -1;
+    if($userIsLogged != -1){
+        $user = $account->getUserInfo($userIsLogged);
+        if(is_post_request() && $userIsLogged != -1){
+            $cart->addItemToCart($userIsLogged, $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
+        }
+    }
+    
+    
+    
+    
+    // var_dump($cart->getAllItem($_SESSION['userLoggedIn']));
+    
 ?>
     <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +38,19 @@
         <div class="header-container">
             <a href="index.php" class="logo"><img src="./images/logo.png" alt=""></a>
             <div class="search-box">
-                <input type="text" placeholder="Tìm Kiếm">
-                <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form action="product.php" method = "GET">
+                    <input type="text" placeholder="Tìm Kiếm" name = 'q'>
+                    <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                
             </div>
             <div class="right-box">
                 <div class="login">
-                    <div><a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a></div>
+                <?php if(!isset($_SESSION['userLoggedIn'])) {
+                        echo '<a href="login.php">ĐĂNG NHẬP</a> / <a href="login.php">ĐĂNG KÝ</a>';
+                    } else {
+                        echo '<a href="">Hi, '.$user->username.' </a> / <a href="logout.php">ĐĂNG XUẤT</a>';
+                    }?>
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -242,7 +261,7 @@
     <!-- END CART -->
 
     <?php require_once 'footer.php'; ?>
-    <script>
+<script>
         // VARIABLES
     const menu = [
         {
@@ -435,7 +454,12 @@
     const cartBody = document.querySelector('.cart-body')
     const sum = document.querySelector('.sum span')
 
-    let cart = []
+    let userLoggedIn = <?php if(isset($_SESSION['userLoggedIn'])) echo "true"; else echo "false" ?>;
+
+
+    var cart = <?php echo $cartItems; ?>;
+    renderItemsToCart();
+    // console.log(cart);
     <?php $data = $loadProduct->listProducts()?>
     const listProducts = <?php echo json_encode($data); ?>
     // ENVENT
@@ -528,7 +552,6 @@
 
     var cartCountElement;
     cartCountElement = document.querySelector('#cart-count');
-    console.log(cartCountElement)
     let selectedSize = ''; // Biến toàn cục để lưu giá trị size được chọn
     let selectedNumber = 1;
 
@@ -550,13 +573,14 @@
                         </div>
                     </div>
                     <div class="detail-right">
+                    <form action="" method="POST">
                         <h1 class="detail-title">${productClick[0].name_product}</h1>
                         <p class="detail-price">${productClick[0].price}</p>
                         <ul>
-                            <li>Chất liệu: Vải Kate lụa</li>
-                            <li>Màu sắc:  ₫en họa tiết</li>
-                            <li>Công nghệ in nhiệt</li>
-                            <li>Thiết kế và sản xuất bởi Rowan & De.Cop Studio</li>
+                            <li>Chất liệu: ${productClick[0].material}</li>
+                            <li>Màu sắc:  ${productClick[0].color}</li>
+                            <li>Công nghệ: ${productClick[0].technology}</li>
+                            <li>Thiết kế và sản xuất: ${productClick[0].producer}</li>
                         </ul>
                         <p class="weight"><span>Trọng lượng: </span>${productClick[0].weight}</p>
                         <p class="size"><span>Size: </span>${productClick[0].size}</p>
@@ -594,29 +618,31 @@
                         </div>
                         <div class="size-pickup">
                             <span class = "size">Size: </span>
-                            <select name="" id="sizeSelect">
-                                <option value="">Chọn một tùy chọn</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
+                            <select name="product_size" id="sizeSelect">
                             </select>
                         </div>
                         <div class="quantity">
                             <span>Số lượng: </span>
                             <div class="input-container" id ="values">
                                 <input type="button" value="-" class="minus">
-                                <input type="number" value="1" class="number" id ="number" step="1" min="1" max="100">
+                                <input name = "quanity" type="quantity" value="1" class="number" id ="number" step="1" min="1" max="100">
                                 <input type="button" value="+" class="plus">
                             </div>
                         </div>
-                        <button class="add-btn">thêm vào giỏ hàng</button>
+                        <button class="add-btn" value = "${productClick[0].product_id}" name = "product_id">thêm vào giỏ hàng</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="detail-overlay"></div>
         `
         const sizeSelect = document.getElementById('sizeSelect');
+        let listOption = ''
+        listSize = productClick[0].size.split(',')
+        listSize.forEach(function(size) {
+            listOption += `<option value="${size}">${size}</option>`;
+        });
+        sizeSelect.innerHTML = listOption
             sizeSelect.addEventListener('change', function() {
             selectedSize = sizeSelect.value; // Gán giá trị size được chọn vào biến toàn cục
         });
@@ -624,7 +650,6 @@
         const numberInput = document.getElementById('number');
     // Gán giá trị ban đầu cho biến selectedNumber
         numberInput.value = selectedNumber;
-
         numberInput.addEventListener('change', function() {
         selectedNumber = parseInt(numberInput.value);
         });
@@ -663,7 +688,7 @@
                 cart.push(...productClick)
                 productDetail.classList.remove('show')
                 renderItemsToCart()
-                cartDetail.classList.add('show')
+                // cartDetail.classList.add('show')
             }
 
         })
@@ -676,14 +701,14 @@
     function renderItemsToCart() {
         const cartItem = cart.map(function(item) {
             return `
-                <div class="cart-item" data-id="${item.product_id}">
+                <div class="cart-item" data-id="${item.cart_detail_id}">
                     <div class="cart-content">
                         <img src="${item.image_1}" alt="">
                         <div class="cart-info">
                             <h4>${item.name_product}</h4>
-                            <span class="size">Size: ${selectedSize}</span>
+                            <span class="size">Size: ${item.product_size}</span>
                             <div>
-                                <input class="quantity-input" type="number" name="" id="" value="${selectedNumber}" min="1" max="100" step="1">
+                                <input class="quantity-input" type="number" name="" id="" value="${item.quantity}" min="1" max="100" step="1">
                                 <span>x</span>
                                 <span class="cart-price">${item.price}</span>
                             </div>
@@ -730,7 +755,7 @@
                 if(removeIcon) {
                     const removeItemId = e.target.parentElement.dataset.id
                     cart = cart.filter(function(item) {
-                        if(item.product_id !== parseInt(removeItemId)) {
+                        if(item.cart_detail_id !== parseInt(removeItemId)) {
                             return item
                         }
                     })
@@ -745,7 +770,7 @@
     function checkOut_clear() {
         if (cart.length > 0) {
             // Giỏ hàng có sản phẩm, cho phép thanh toán
-            cart = [];
+            // cart = [];
             renderItemsToCart();
             cartCountElement.textContent = 0;  
             Swal.fire({
@@ -774,24 +799,23 @@
     });
 
 
-    let userLoggedIn = true;
 
-    function checkLogin() {
-    // Kiểm tra trạng thái đăng nhập
-    if (userLoggedIn) {
-        return true; // Người dùng đã đăng nhập
-    } else {
-        return false; // Người dùng chưa đăng nhập
-    }
-    }
+    // function checkLogin() {
+    // // Kiểm tra trạng thái đăng nhập
+    // if (userLoggedIn) {
+    //     return true; // Người dùng đã đăng nhập
+    // } else {
+    //     return false; // Người dùng chưa đăng nhập
+    // }
+    // }
 
 
     function checkOut() {
-        if (checkLogin()) {
+        if (userLoggedIn) {
             // Người dùng đã đăng nhập
             if (cart.length > 0) {
                 // Giỏ hàng có sản phẩm, cho phép thanh toán
-                cart = [];
+                // cart = [];
                 renderItemsToCart();
                 cartCountElement.textContent = 0;  
                 Swal.fire({
@@ -897,23 +921,23 @@
             total += (price * quantity)
         })
         var totals = total.toLocaleString();
-        sum.innerHTML = total.toLocaleString() + ' ₫'
+        sum.innerHTML = total.toLocaleString() + ' ₫'   
     }
 
-    const closeModal = document.querySelector('.close-modal')
-    const overlay = document.querySelector('.overlay')
-    const contactBtn = document.querySelector('.contact__ques-btn')
-    const modal = document.querySelector('#modal')
-    contactBtn.addEventListener('click', showModal)
-    closeModal.addEventListener('click', hideModal)
-    overlay.addEventListener('click', hideModal)
+    // const closeModal = document.querySelector('.close-modal')
+    // const overlay = document.querySelector('.overlay')
+    // const contactBtn = document.querySelector('.contact__ques-btn')
+    // const modal = document.querySelector('#modal')
+    // contactBtn.addEventListener('click', showModal)
+    // closeModal.addEventListener('click', hideModal)
+    // overlay.addEventListener('click', hideModal)
 
-    function showModal() {
-        modal.classList.add('show')
-    }
-    function hideModal() {
-        modal.classList.remove('show')
-    }
+    // function showModal() {
+    //     modal.classList.add('show')
+    // }
+    // function hideModal() {
+    //     modal.classList.remove('show')
+    // }
 
 
 </script>

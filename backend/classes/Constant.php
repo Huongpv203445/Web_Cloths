@@ -10,6 +10,8 @@ class Constant{
     public static $passwordNotAlphanumeric="Your password can only contain letters and numbers";
     public static $loginPasswordFailed="Password and username don't match";
     public static $phoneNumberContainLetter="Phone number must not contain letters or special characters";
+    public static $authToAddProducts="You need login to use this function";
+
 }
 
 

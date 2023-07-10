@@ -23,11 +23,9 @@ if(is_post_request() && $_POST['function']=='register'){
 }
 else if(is_post_request() && $_POST['function']=='login'){
     if(isset($_POST['username']) && !empty($_POST['password'])){
-        echo "login";
         $username_email=formSanitizer::formSanitizerString($_POST['username']);
         $password=formSanitizer::formSanitizerString($_POST['password']);
         $wasSuccessful=$account->login($username_email,$password);
-        echo $wasSuccessful;
           if($wasSuccessful){
               session_regenerate_id();
               $_SESSION['userLoggedIn']=$wasSuccessful;

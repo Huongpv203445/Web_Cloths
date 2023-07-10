@@ -134,6 +134,14 @@ class Account{
         return "<span class='errorMessage'>$error</span>";
     }
   }
+
+  public function getUserInfo($user_id){
+      $stmt=$this->pdo->prepare("SELECT * FROM `users` WHERE `user_id`=:userId");
+        $stmt->bindParam(":userId",$user_id,PDO::PARAM_INT);
+        $stmt->execute();
+        $user=$stmt->fetchAll(PDO::FETCH_OBJ);
+        return $user[0];
+  }
   
 }
 
