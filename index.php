@@ -2,15 +2,12 @@
 
 <?php require_once "backend/initialize.php";?>
 <?php 
-    $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($_SESSION['userLoggedIn'])) : json_encode(array());
-    $userIsLogged = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : -1;
-    if($userIsLogged != -1){
-        $user = $account->getUserInfo($userIsLogged);
-        if(is_post_request() && $userIsLogged != -1){
-            $cart->addItemToCart($userIsLogged, $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
-        }
-    }
-    
+    // $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($_SESSION['userLoggedIn'])) : json_encode(array());
+    // $userIsLogged = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : -1;
+    // $user = $account->getUserInfo($userIsLogged);
+    // if(is_post_request() && $userIsLogged != -1){
+    //     $cart->addItemToCart($userIsLogged, $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
+    // }
     
     
     
@@ -54,7 +51,7 @@
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-count">0</span>
+                    <span id="cart-count"><?php if(isset($_SESSION['userLoggedIn'])) echo count($cart->getAllItems($_SESSION['userLoggedIn'])); else echo '0';?></span>
                 </a>
             </div>
         </div>
@@ -137,7 +134,7 @@
         </div>
         <div class="catagories-box">
             <div class="catagory-box">
-                <a href="product.php" class="box-shoe">
+                <a href="product.php?category=1" class="box-shoe">
                     <img src="./images/shoebox.jpg" alt="">
                     <div class="box-desc">
                         <span>GIÀY</span>
@@ -146,7 +143,7 @@
                 </a>
             </div>
             <div class="catagory-box">
-                <a href="product.php" class="box-clothing">
+                <a href="product.php?category=2" class="box-clothing">
                     <img src="./images/clothingbox.jpg" alt="">
                     <div class="box-desc">
                         <span>QUẦN ÁO</span>
@@ -155,7 +152,7 @@
                 </a>
             </div>
             <div class="catagory-box">
-                <a href="product.php" class="box-accessories">
+                <a href="product.php?category=3" class="box-accessories">
                     <img src="./images/accessoriesbox.jpg" alt="">
                     <div class="box-desc">
                         <span>PHỤ KIỆN</span>
@@ -459,7 +456,7 @@
 
     var cart = <?php echo $cartItems; ?>;
     renderItemsToCart();
-    // console.log(cart);
+    console.log(cart);
     <?php $data = $loadProduct->listProducts()?>
     const listProducts = <?php echo json_encode($data); ?>
     // ENVENT
@@ -653,51 +650,54 @@
         numberInput.addEventListener('change', function() {
         selectedNumber = parseInt(numberInput.value);
         });
-
+    
 
         productsDetail()
-        const addBtn= document.querySelector('.add-btn')
-        addBtn.addEventListener('click', function() {
+        // const addBtn= document.querySelector('.add-btn')
+        // addBtn.addEventListener('click', function() {
             //size sản phẩm
-        var sizeSelect = document.querySelector('.size-pickup select');
-        var selectedSize = sizeSelect.value;
-            if (selectedSize === '') {
-                Swal.fire({
-                icon: 'error',
-                title: 'Vui lòng chọn kích thước trước khi thêm vào giỏ hàng',
-                showConfirmButton: false,
-                timer: 1200
-                });
-                return;
-            }
-            else{
-                cart.forEach(function(item) {
-                    if (item.title === productClick[0].title) {
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'Sản phẩm đã được thêm vào giỏ hàng trước đó',
-                        showConfirmButton: false,
-                        timer: 1200
-                    });
-                    return;
-                    }
-                });
-                var currentCount = parseInt(cartCountElement.textContent);
-                var newCount = currentCount + 1;
-                cartCountElement.textContent = newCount; 
-                cart.push(...productClick)
-                productDetail.classList.remove('show')
-                renderItemsToCart()
+        // var sizeSelect = document.querySelector('.size-pickup select');
+        // var selectedSize = sizeSelect.value;
+            // if (selectedSize === '') {
+            //     Swal.fire({
+            //     icon: 'error',
+            //     title: 'Vui lòng chọn kích thước trước khi thêm vào giỏ hàng',
+            //     showConfirmButton: false,
+            //     timer: 1200
+            //     });
+            //     return;
+            // }
+            // else{
+                // cart.forEach(function(item) {
+                //     // console.log(item.product_id, '     ', productClick[0].product_id)
+                //     if (item.product_id === productClick[0].product_id && item.product_size == productClick[0].product_size) { // if id = id && size = size
+                //         // tang so luong san pham da co
+                //         Swal.fire({
+                //             icon: 'info',
+                //             title: 'Sản phẩm đã được thêm vào giỏ hàng trước đó',
+                //             showConfirmButton: false,
+                //             timer: 1200
+                //         });
+                //         return;
+                //     }
+                //     else{
+                //         // tao detail card
+                //     }
+                // });
+                // var currentCount = parseInt(cartCountElement.textContent); // Value current
+                // var newCount = currentCount + 1;
+                // cartCountElement.textContent = newCount; 
+                // cart.push(...productClick)
+                // productDetail.classList.remove('show')
+                // renderItemsToCart()
                 // cartDetail.classList.add('show')
-            }
+            // }
 
-        })
+        // })
         
     }
 
 
-
-    var cartCountElement = document.getElementById("cart-count");
     function renderItemsToCart() {
         const cartItem = cart.map(function(item) {
             return `
@@ -714,9 +714,10 @@
                             </div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-circle-xmark"></i>
+                    <a href="deleteCart.php?cart_detail_id=${item.cart_detail_id}"><i class="fa-solid fa-circle-xmark"></i></a>
                 </div>
             `;
+            // <i class="fa-solid fa-circle-xmark"></i>
         })
         .join('')
         cartBody.innerHTML = cartItem
@@ -753,7 +754,6 @@
                     cartCountElement.textContent -= 1;
                 }              
                 if(removeIcon) {
-                    const removeItemId = e.target.parentElement.dataset.id
                     cart = cart.filter(function(item) {
                         if(item.cart_detail_id !== parseInt(removeItemId)) {
                             return item
@@ -843,7 +843,7 @@
                 confirmButtonText: 'OK',
             }).then(function() {
                 // Chuyển đến trang đăng nhập
-                window.location.href = 'login.html'; // Thay 'duong_dan_dang_nhap' bằng đường dẫn đến trang đăng nhập của bạn
+                window.location.href = 'login.php'; // Thay 'duong_dan_dang_nhap' bằng đường dẫn đến trang đăng nhập của bạn
             });
         }
     }

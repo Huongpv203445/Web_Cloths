@@ -35,10 +35,14 @@ else if(is_post_request() && $_POST['function']=='login'){
             //    $loadFromUser->create("token",["user_id"=>$wasSuccessful,"token"=>sha1($token)]);
             //    setcookie('FBID',$token,time()+3600*24*7,"/",NULL,NULL);
             //   }
-              redirect_to(url_for("index.php"));
+            $userInfo = $account->getUserInfo($wasSuccessful);
+            if($userInfo->is_admin)
+                redirect_to('admin.php');
+            else redirect_to('index.php');
          }
        }
   }
+
 
 ?>
     <!-- LOGIN / SIGN UP -->
@@ -52,12 +56,20 @@ else if(is_post_request() && $_POST['function']=='login'){
                 <div class="login-left">
                     <div class="login-form">
                         <h1>đăng nhập</h1>
+                            <?php 
+                                if(count($account->getError())){
+                                    foreach($account->getError() as $error){
+                                        echo '<p class="error">'.$error.'</p>';
+                                    }
+                                }
+                            ?>
                         <form id="login-form" action="" method="POST">
-                            <label for="username">Tên tài khoản hoặc địa chỉ email <span>*</span></label>
-                            <input id="username" type="text" name="username"placeholder="Username/Email..." required>
+                            <label for="username">Email <span>*</span></label>
+                            <input id="username" type="text" name="username"placeholder="Email..." required>
                             <label for="pass-word">Mật khẩu <span>*</span></label>
                             <input id="pass-word" type="password" name = "password" placeholder="Mật khẩu..." required>
                             <input name = "function" value = "login" style="visibility: hidden; width:0; height:0;">
+                            
                             <button class="login-btn" type="submit">đăng nhập</button>
                             <div class="password">
                                 <div>

@@ -67,9 +67,7 @@
                 </div>
             </div>
             <div class="footer-right">
-                <a href="https://www.google.com/maps/dir//21.0062059,105.8431067/@21.0061786,105.8417699,18.03z/data=!4m2!4m1!3e0?entry=ttu">
-                    <img src="./images/dhbk.png" alt="">
-                </a>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2007.2855039410376!2d105.84503181649693!3d21.005535188787732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1689649730208!5m2!1svi!2s" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <hr>

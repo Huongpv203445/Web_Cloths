@@ -17,7 +17,11 @@ $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($
     $userIsLogged = isset($_SESSION['userLoggedIn']) ? $_SESSION['userLoggedIn'] : -1;
     if($userIsLogged != -1){
         $user = $account->getUserInfo($userIsLogged);
-        if(is_post_request() && $userIsLogged != -1){
-            $cart->addItemToCart($userIsLogged, $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
+        if(is_post_request() && $userIsLogged != -1 && isset($_POST['product_id'])){
+            $cart->updateCartDetail($_SESSION['userLoggedIn'], $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
+            $cartItems = json_encode($cart->getAllItems($_SESSION['userLoggedIn']));
+
+            // $cart->addItemToCart($userIsLogged, $_POST['product_id'], $_POST['product_size'], $_POST['quanity']);
+            // redirect_to(url_for("index.php"));
         }
     }

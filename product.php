@@ -3,6 +3,14 @@
 <?php require_once 'header.php'; 
     $data = $loadProduct->listProducts();
     $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($_SESSION['userLoggedIn'])) : json_encode(array());
+    $shoesQuantity = 0;
+    $shirtQuantity = 0;
+    $accessoryQuantity = 0;
+    foreach($data as $item){
+        if($item->category_id==1) $shoesQuantity += 1;
+        else if ($item->category_id==2) $shirtQuantity += 1;
+        else $accessoryQuantity += 1;
+    }
 
 ?>
 
@@ -15,32 +23,32 @@
         <div id="category">
             <div class="category">
                 <div class="cate-container">
-                    <a class="cate-box" data-id="all">
+                    <a class="cate-box" data-id="all" href="product.php">
                         <img src="./images/slide1.jpg" alt="">
                         <div class="cate-text">
                             <h4 class="click">all</h4>
-                            <p>30 sản phẩm</p>
+                            <p><?php echo count($data)?> sản phẩm</p>
                         </div>
                     </a>
-                    <a class="cate-box" data-id="shoes">
+                    <a class="cate-box" data-id="shoes" href="product.php?category=1">
                         <img src="./images/shoebox.jpg" alt="">
                         <div class="cate-text">
                             <h4>Giày</h4>
-                            <p>11 sản phẩm</p>
+                            <p><?php echo $shoesQuantity ;?> sản phẩm</p>
                         </div>
                     </a>
-                    <a class="cate-box" data-id="clothing">
-                        <img src="./images/clothingbox.jpg" alt="">
+                    <a class="cate-box" data-id="clothing" href="product.php?category=2">
+                        <img src="./images/clothingbox.jpg" alt="" >
                         <div class="cate-text">
                             <h4>Quần áo</h4>
-                            <p>3 sản phẩm</p>
+                            <p><?php echo $shirtQuantity ;?> sản phẩm</p>
                         </div>
                     </a>
-                    <a class="cate-box" data-id="accessories">
+                    <a class="cate-box" data-id="accessories" href="product.php?category=3">
                         <img src="./images/accessoriesbox.jpg" alt="">
                         <div class="cate-text">
                             <h4>Phụ Kiện</h4>
-                            <p>7 sản phẩm</p>
+                            <p><?php echo $accessoryQuantity ;?> sản phẩm</p>
                         </div>
                     </a>
                 </div>
@@ -68,7 +76,11 @@
     <?php 
     if(is_get_request() && isset($_GET['q'])){
         $loadProduct->filterProducts($_GET['q']);
-    }else{
+    }
+    else if(isset($_GET['category'])){
+        $data = $loadProduct->getProductWithCI($_GET['category']);
+    }
+    else{
         $loadProduct->products();
     }?>
 
@@ -690,6 +702,7 @@
                 }              
                 if(removeIcon) {
                     const removeItemId = e.target.parentElement.dataset.id
+                    console.log("asdasd")
                     cart = cart.filter(function(item) {
                         if(item.cart_detail_id !== parseInt(removeItemId)) {
                             return item

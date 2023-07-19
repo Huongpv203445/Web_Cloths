@@ -2,7 +2,7 @@
 
 class FormSanitizer{
      
-  public static  function formSanitizerString($data){
+  public static function formSanitizerString($data){
         $data=trim(strip_tags($data));
         $data=htmlspecialchars($data);
         return $data;
@@ -15,5 +15,7 @@ class FormSanitizer{
         $data=ucfirst($data);
         return $data;
     }
+
+
 }
 ?>

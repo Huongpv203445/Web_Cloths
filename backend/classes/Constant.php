@@ -5,6 +5,8 @@ class Constant{
     public static $lastNameCharacters="Your last name must be between 2 and 25 Characters";
     public static $emailInUse="Email already in use";
     public static $emailInValid="Email is invalid";
+    public static $emailWrong="Email khong ton tai";
+
     public static $passwordLength="Your password must be between 5 and 30 characters";
     public static $passwordDoNotMatch="Your password do not match";
     public static $passwordNotAlphanumeric="Your password can only contain letters and numbers";

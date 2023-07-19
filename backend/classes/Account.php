@@ -22,26 +22,31 @@ class Account{
 
 
 
-  public function login($username,$password){
-    $pass_hash=$this->getHashPassword($username);
-    $stmt=$this->pdo->prepare("SELECT * FROM `users` WHERE (`username`=:username AND `password`=:password) OR (`email`=:username AND password=:password)");
-    $stmt->bindParam(":password",$pass_hash,PDO::PARAM_STR);
-    $stmt->bindParam(":username",$username,PDO::PARAM_STR);
-    $stmt->execute();
-    $user=$stmt->fetch(PDO::FETCH_OBJ); 
-    $count=$stmt->rowCount();
-    if($count != 0){
-        if(password_verify($password,$pass_hash)){
-            return $user->user_id;
-        }else{
-            array_push($this->errorArray,Constant::$loginPasswordFailed);
-            return false;
-        }
+  public function login($email,$password){
+    $pass_hash=$this->getHashPassword($email);
+    $this->checkEmail($email);
+    if(count($this->errorArray)){
+      return false;
+    }
+    else{
+      $stmt=$this->pdo->prepare("SELECT * FROM `users` WHERE(`email`=:email AND password=:password)");
+      $stmt->bindParam(":password",$pass_hash,PDO::PARAM_STR);
+      $stmt->bindParam(":email",$email,PDO::PARAM_STR);
+      $stmt->execute();
+      $user=$stmt->fetch(PDO::FETCH_OBJ); 
+      $count=$stmt->rowCount();
+      if($count != 0){
+          if(password_verify($password,$pass_hash)){
+              return $user->user_id;
           }else{
               array_push($this->errorArray,Constant::$loginPasswordFailed);
               return false;
           }
-
+            }else{
+                array_push($this->errorArray,Constant::$loginPasswordFailed);
+                return false;
+        }
+    }
   }
 
   private function getHashPassword($username){
@@ -103,6 +108,20 @@ class Account{
         return array_push($this->errorArray,Constant::$emailInValid);
     }
   }
+
+  private function checkEmail($em){
+    $stmt=$this->pdo->prepare("SELECT * FROM `users` WHERE email=:email");
+    $stmt->bindParam(":email",$em,PDO::PARAM_STR);
+    $stmt->execute();
+    $count=$stmt->rowCount();
+    
+    if(!filter_var($em,FILTER_VALIDATE_EMAIL)){
+      return array_push($this->errorArray,Constant::$emailInValid);
+  }
+    if($count <= 0){
+        return array_push($this->errorArray,Constant::$emailWrong);
+    }
+  }
   
   private function validatePassword($pw,$pw2){
     if($pw != $pw2){
@@ -143,6 +162,19 @@ class Account{
         return $user[0];
   }
   
+  public function getError(){
+    return $this->errorArray;
+  }
+
+  public function getAllUsers(){
+    $stmt=$this->pdo->prepare("SELECT * FROM `users`");
+    $stmt->execute();
+    $users=$stmt->fetchAll(PDO::FETCH_OBJ);
+    return $users;
+  }
+
 }
+
+
 
 ?>
