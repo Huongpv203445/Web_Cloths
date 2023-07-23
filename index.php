@@ -251,7 +251,7 @@
                     <span>0 ₫</span>
                 </div>
                 <button class="clear">xóa sản phẩm</button>
-                <button class="pay">thanh toán</button>
+                <a class="pay" href = "handle_order.php">thanh toán</a>
             </div>
         </div>
     </section>
@@ -510,17 +510,32 @@
 
     function addClickEventProduct(){
         const productBoxes = document.querySelectorAll('.product')
+        console.log(productBoxes)
         productBoxes.forEach(function (product) {
             product.addEventListener('click', function (e) {
                 const productId = e.currentTarget.dataset.id
                 productDetail.classList.add('show')
-
-                const productClick = listProducts.filter(function(item) {
+                if(userLoggedIn)
+                {
+                    const productClick = listProducts.filter(function(item) {
                     if(item.product_id == parseInt(productId)) {
                         return item
                     }
-                })
-                renderProductDetail(productClick)
+                    })
+                     renderProductDetail(productClick)
+                }
+                else {
+                     // Người dùng chưa đăng nhập, hiển thị thông báo và chuyển đến trang đăng nhập
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Cần đăng nhập!',
+                    text: 'Vui lòng đăng nhập trước khi xem chi tiết sản phẩm.',
+                    confirmButtonText: 'OK',
+                    }).then(function() {
+                    // Chuyển đến trang đăng nhập
+                    window.location.href = 'login.php'; // Thay 'duong_dan_dang_nhap' bằng đường dẫn đến trang đăng nhập của bạn
+                    });
+                }
             })
         })
     }
@@ -816,6 +831,7 @@
             if (cart.length > 0) {
                 // Giỏ hàng có sản phẩm, cho phép thanh toán
                 // cart = [];
+                console.log(<?php echo 1;?>)
                 renderItemsToCart();
                 cartCountElement.textContent = 0;  
                 Swal.fire({

@@ -2,7 +2,6 @@
 
 class Products{
 
-    public static $count = 1000000000000000001;
     private $pdo;
 
 
@@ -40,6 +39,14 @@ class Products{
         $stmt=$this->pdo->prepare("SELECT * FROM `products`");
         $stmt->execute();
         $products=$stmt->fetchAll(PDO::FETCH_OBJ);
+        return $products;
+    }
+
+    public function getOneProduct($id){
+        $stmt=$this->pdo->prepare("SELECT * FROM `products` WHERE `product_id` = :id");
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT);
+        $stmt->execute();
+        $products=$stmt->fetch(PDO::FETCH_OBJ);
         return $products;
     }
 
@@ -85,6 +92,8 @@ class Products{
         $categories=$stmt->fetchAll(PDO::FETCH_OBJ);
         return $categories;
     }
+
+    
 
     public function addProduct($category_id, $name_product, $size, $weight, $color, $material, $technology, $producer, $image_1, $image_2, $image_3, $price, $quantity_product){
         $stmt = $this->pdo->prepare("INSERT INTO `products`
@@ -139,5 +148,26 @@ class Products{
         $stmt->bindParam(":id",$id,PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function updateProduct($product_id, $category_id, $name_product, $size, $weight, $color, $material, $technology, $producer, $image_1, $image_2, $image_3, $price, $quantity_product){
+        $stmt = $this->pdo->prepare("UPDATE `products` SET `category_id`=:category_id,`name_product`=:name_product,`size`=:size,`weight`=:weight,`color`=:color,`material`=:material,`technology`=:technology,`producer`=:producer,`image_1`=:image_1,`image_2`=:image_2,`image_3`=:image_3,`price`=:price,`quantity_product`=:quantity_product WHERE `product_id`=:product_id");
+        $stmt->bindParam(":category_id",$category_id,PDO::PARAM_STR);
+        $stmt->bindParam(":product_id",$product_id,PDO::PARAM_STR);
+        $stmt->bindParam(":name_product",$name_product,PDO::PARAM_STR);
+        $stmt->bindParam(":size",$size,PDO::PARAM_STR);
+        $stmt->bindParam(":weight",$weight,PDO::PARAM_STR);
+        $stmt->bindParam(":color",$color,PDO::PARAM_STR);
+        $stmt->bindParam(":material",$material,PDO::PARAM_STR);
+        $stmt->bindParam(":technology",$technology,PDO::PARAM_STR);
+        $stmt->bindParam(":producer",$producer,PDO::PARAM_STR);
+        $stmt->bindParam(":image_1",$image_1,PDO::PARAM_STR);
+        $stmt->bindParam(":image_2",$image_2,PDO::PARAM_STR);
+        $stmt->bindParam(":image_3",$image_3,PDO::PARAM_STR);
+        $stmt->bindParam(":price",$price,PDO::PARAM_INT);
+        $stmt->bindParam(":quantity_product",$quantity_product,PDO::PARAM_INT);
+        $stmt->execute();
+        return $this->pdo->lastInsertId();
+    }
 }
+
+
 ?>

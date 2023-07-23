@@ -465,13 +465,27 @@
             product.addEventListener('click', function (e) {
                 const productId = e.currentTarget.dataset.id
                 productDetail.classList.add('show')
-
-                const productClick = listProducts.filter(function(item) {
+                if(userLoggedIn)
+                {
+                    const productClick = listProducts.filter(function(item) {
                     if(item.product_id == parseInt(productId)) {
                         return item
                     }
-                })
-                renderProductDetail(productClick)
+                    })
+                     renderProductDetail(productClick)
+                }
+                else {
+                     // Người dùng chưa đăng nhập, hiển thị thông báo và chuyển đến trang đăng nhập
+                    Swal.fire({
+                    icon: 'warning',
+                    title: 'Cần đăng nhập!',
+                    text: 'Vui lòng đăng nhập trước khi xem chi tiết sản phẩm.',
+                    confirmButtonText: 'OK',
+                    }).then(function() {
+                    // Chuyển đến trang đăng nhập
+                    window.location.href = 'login.php'; // Thay 'duong_dan_dang_nhap' bằng đường dẫn đến trang đăng nhập của bạn
+                    });
+                }
             })
         })
     }

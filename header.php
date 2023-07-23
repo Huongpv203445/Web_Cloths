@@ -39,7 +39,7 @@
                 </div>
                 <a class="cart" onclick = "toggleCart()">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-count">0</span>
+                    <span id="cart-count"><?php if(isset($_SESSION['userLoggedIn'])) echo count($cart->getAllItems($_SESSION['userLoggedIn'])); else echo '0';?></span>
                 </a>
             </div>
         </div>

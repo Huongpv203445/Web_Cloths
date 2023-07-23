@@ -48,7 +48,6 @@ class Cart{
         $stmt->bindParam(":quanity",$quanity,PDO::PARAM_INT);
         $stmt->execute();
         return $this->pdo->lastInsertId();
-
     }
 
     public function getErrorMessage($error){
@@ -103,6 +102,19 @@ class Cart{
                 return $this->pdo->lastInsertId();
         }
     }
+
+    public function removeAllItem($user_id){
+        $listInCart = $this->getAllItems($user_id);
+        $stmt=$this->pdo->prepare("DELETE FROM `cart` WHERE `user_id` = :user_id");
+        $stmt->bindParam(":user_id",$user_id,PDO::PARAM_INT);
+        $stmt->execute();
+        foreach($listInCart as $item){
+            $stmt1=$this->pdo->prepare("DELETE FROM `cart_detail` WHERE `cart_detail_id` = :id");
+            $stmt1->bindParam(":id",$item->cart_detail_id,PDO::PARAM_INT);
+            $stmt1->execute();
+        }
+    }
+    
 
 }
 ?>
