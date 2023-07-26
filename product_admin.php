@@ -604,7 +604,7 @@ function renderProductDetail(productClick) {
         </tr>
         <tr>
           <th>Ngày nhập hàng: </th>
-          <td>24/06/2023</td>
+          <td>${productClick[0].createdDate} </td>
         </tr>
       </table>
     </div>  

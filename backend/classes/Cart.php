@@ -74,12 +74,12 @@ class Cart{
     }
 
     public function updateCartDetail($user_id, $product_id, $product_size, $quanity){
-        $stmt=$this->pdo->prepare("SELECT
-                                    quantity, cart_detail.cart_detail_id
-                                FROM
-                                    cart_detail
-                                INNER JOIN cart ON cart_detail.cart_detail_id = cart.cart_detail_id
-                                WHERE cart.user_id = :user_id AND cart_detail.product_id = :product_id AND cart_detail.product_size = :product_size");
+            $stmt=$this->pdo->prepare("SELECT
+                                        quantity, cart_detail.cart_detail_id
+                                    FROM
+                                        cart_detail
+                                    INNER JOIN cart ON cart_detail.cart_detail_id = cart.cart_detail_id
+                                    WHERE cart.user_id = :user_id AND cart_detail.product_id = :product_id AND cart_detail.product_size = :product_size");
         $stmt->bindParam(":product_id",$product_id,PDO::PARAM_INT);
         $stmt->bindParam(":user_id",$user_id,PDO::PARAM_INT);
         $stmt->bindParam(":product_size",$product_size,PDO::PARAM_STR);

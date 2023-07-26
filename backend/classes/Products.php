@@ -96,11 +96,12 @@ class Products{
     
 
     public function addProduct($category_id, $name_product, $size, $weight, $color, $material, $technology, $producer, $image_1, $image_2, $image_3, $price, $quantity_product){
+        $currentDateTime = date("d-m-Y");
         $stmt = $this->pdo->prepare("INSERT INTO `products`
         (`category_id`, `name_product`, `size`, `weight`, `color`, `material`,
-         `technology`, `producer`, `image_1`, `image_2`, `image_3`, `price`,`quantity_product`) 
+         `technology`, `producer`, `image_1`, `image_2`, `image_3`, `price`,`quantity_product`,`createdDate`) 
          VALUES (:category_id, :name_product, :size, :weight, :color, :material,
-        :technology, :producer, :image_1, :image_2, :image_3, :price, :quantity_product)");
+        :technology, :producer, :image_1, :image_2, :image_3, :price, :quantity_product, :createdDate)");
         $stmt->bindParam(":category_id",$category_id,PDO::PARAM_STR);
         $stmt->bindParam(":name_product",$name_product,PDO::PARAM_STR);
         $stmt->bindParam(":size",$size,PDO::PARAM_STR);
@@ -114,6 +115,7 @@ class Products{
         $stmt->bindParam(":image_3",$image_3,PDO::PARAM_STR);
         $stmt->bindParam(":price",$price,PDO::PARAM_INT);
         $stmt->bindParam(":quantity_product",$quantity_product,PDO::PARAM_INT);
+        $stmt->bindParam(":createdDate",$currentDateTime,PDO::PARAM_STR);
         $stmt->execute();
         return $this->pdo->lastInsertId();
     }

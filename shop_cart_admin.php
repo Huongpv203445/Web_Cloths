@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php require_once "backend/initialize.php";?>
+<?php 
+  $all_orders = $orders->getAllOrders();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,23 +66,34 @@
                             <th>Chi tiết đơn hàng</th>
                             <th>Xác nhận đơn hàng</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>SP001</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>0989100256</td>
-                            <td>Hà Nội</td>
-                            <td>Đang giao hàng</td>
-                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal_1">
+                        <?php 
+                          for($i = 0; $i < count($all_orders); $i++){
+                            $stt = $i + 1;
+                            $order = '<tr>
+                            <td>'.$stt.'</td>
+                            <td>'.$all_orders[$i]->order_id.'</td>
+                            <td>'.$all_orders[$i]->username.'</td>
+                            <td>'.$all_orders[$i]->phone_number.'</td>
+                            <td>'.$all_orders[$i]->address.'</td>
+                            <td>'.$all_orders[$i]->status.'</td>
+                            <td><button type="button" class="btn btn-primary detail_order" data-id = '.$all_orders[$i]->order_id.' data-toggle="modal" data-target="#myModal_1">
                               Chi tiết
                             </button></td>
                             <td>
-                                <div class="action">
-                                <div class="edit-link"><a href="#">Nhận</a></div>
-                                <div class="delete-link"><a href="#">Hủy</a></div>
-                                </div>
-                            </td> 
-                        </tr>
+                                <div class="action">';
+                            if($all_orders[$i]->status == 'Đang chờ xác nhận'){
+                              $order.= '
+                                <div class="edit-link"><a href="handle_accept.php/?order_detail_id='.$all_orders[$i]->order_detail_id.'">Nhận</a></div>
+                              ';
+                            }
+                            
+                            $order .= '  <div class="delete-link"><a href="refuse_order.php/?order_detail_id='.$all_orders[$i]->order_detail_id.'">Hủy</a></div>
+                            </div>
+                        </td> 
+                    </tr>';
+                            echo $order;
+                          }
+                        ?>
                     </table>
                 </div>
             </div>
@@ -86,68 +101,9 @@
     </section>
 
    <!-- The Modal -->
-   <div class="modal" id="myModal_1">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class="modal" id="myModal_1">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Thông tin chi tiết đơn hàng</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-  <!-- Nội dung modal 2 ở đây -->
-  <table>
-    <tr>
-      <th>Mã đơn hàng: </th>
-      <td>01</td>
-    </tr>
-    <tr>
-      <th>Mã khách hàng:</th>
-      <td>KH01</td>
-    </tr>
-    <tr>
-      <th>Tên khách hàng:</th>
-      <td>Nguyễn Văn A</td>
-    </tr>
-    <tr>
-      <th>Địa chỉ nhận hàng:</th>
-      <td>Từ Sơn</td>
-    </tr>
-    <tr>
-      <th>Email người nhận:</th>
-      <td>nguyenvanA@gamil.com</td>
-    </tr>
-    <tr>
-      <th>Số điện thoại:</th>
-      <td>097516118</td>
-    </tr>
-    <tr>  
-    <tr>
-        <th>Tổng tiền: </th>
-        <td>10000đ</td>
-    </tr>
-    <tr>
-        <th>Trạng thái: </th>
-        <td> Đang giao hàng</td>
-    </tr>
-    <tr>
-      <th>Ngày tạo đơn: </th>
-      <td>24/06/2023</td>
-    </tr>
-  </table>
-</div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-      </div>
-
-    </div>
   </div>
-</div>
 
 <style>
   table {
@@ -184,4 +140,86 @@
         nav.classList.toggle('hide');
         content.classList.toggle('expand');
     }
+
+const orderBoxes = document.querySelectorAll('.detail_order')
+const listOrders = <?php echo json_encode($all_orders); ?>;
+const orderDetail = document.getElementById('myModal_1')
+
+orderBoxes.forEach(function (order) {
+  order.addEventListener('click', function (e) {
+    console.log("123")
+  const orderId = e.currentTarget.dataset.id
+    const orderClick = listOrders.filter(function(item) {
+       if(item.order_id == parseInt(orderId)) {
+          return item
+       }
+    })
+    renderOrderDetail(orderClick)
+  })
+})
+
+function renderOrderDetail(orderClick) {
+  orderDetail.innerHTML = `
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Thông tin chi tiết đơn hàng</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+    <div class="modal-body">
+  <!-- Nội dung modal 2 ở đây -->
+        <table>
+          <tr>
+            <th>Mã đơn hàng: </th>
+            <td>${orderClick[0].order_id}</td>
+          </tr>
+          <tr>
+            <th>Mã khách hàng:</th>
+            <td>${orderClick[0].user_id}</td>
+          </tr>
+          <tr>
+            <th>Tên khách hàng:</th>
+            <td>${orderClick[0].username}</td>
+          </tr>
+          <tr>
+            <th>Địa chỉ nhận hàng:</th>
+            <td>${orderClick[0].address}</td>
+          </tr>
+          <tr>
+            <th>Email người nhận:</th>
+            <td>${orderClick[0].email}</td>
+          </tr>
+          <tr>
+            <th>Số điện thoại:</th>
+            <td>${orderClick[0].phone_number}</td>
+          </tr>
+          <tr>  
+          <tr>
+              <th>Tổng tiền: </th>
+              <td>${orderClick[0].total_price}</td>
+          </tr>
+          <tr>
+              <th>Trạng thái: </th>
+              <td> ${orderClick[0].status}</td>
+          </tr>
+          <tr>
+            <th>Ngày tạo đơn: </th>
+            <td>${orderClick[0].created_date}</td>
+          </tr>
+        </table>
+    </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+      </div>
+
+    </div>
+  </div>
+        `
+}
 </script>
