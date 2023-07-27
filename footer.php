@@ -85,29 +85,30 @@
             </div>
             <div class="modal-left">
                 <h1>nhắn cho chúng tôi</h1>
-                <form class="modal-form" action="">
+                <form class="modal-form" action="sendContact.php" method = "POST">
+                <input type="text" name = "contact" style = "display:none;">
                     <div class="required">
                         <div>
                             <label for="">Họ tên</label>
-                            <input type="text" placeholder="Họ tên..." required>
+                            <input type="text" placeholder="Họ tên..." name = "name" required>
                         </div>
                         <div>
                             <label for="">Email</label>
-                            <input type="email" placeholder="Email..." required>
+                            <input type="email" placeholder="Email..." name = "email" required>
                         </div>
                     </div>
                     <div class="optional">
                         <div>
                             <label for="">SĐT (nếu có)</label>
-                            <input type="text" placeholder="Số điện thoại...">
+                            <input type="text" placeholder="Số điện thoại..." name = "phone">
                         </div>
                         <div>
                             <label for="">Địa chỉ (nếu có)</label>
-                            <input type="text" placeholder="Địa chỉ...">
+                            <input type="text" placeholder="Địa chỉ..." name = "address">
                         </div>
                     </div>
                     <label for="">Nội dung</label>
-                    <textarea name="" id="" cols="30" rows="10">
+                    <textarea id="" cols="30" rows="10" name="content">
     
                     </textarea>
                     <button class="modal-btn" type="">Gửi tin nhắn</button>
@@ -115,8 +116,8 @@
             </div>
             <div class="modal-right">
                 <h1>thông tin liên hệ</h1>
-                <p><i class="fa-solid fa-location-arrow"></i>87 Lê Thanh Nghị, Bách Khoa, Hai Bà Trưng, Hà Nội</p>
-                <p><i class="fa-solid fa-phone"></i></i><a href="">Tư vấn: 0975.181.116</a></p>
+                <p><i class="fa-solid fa-location-arrow"></i>Số 1 Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội</p>
+                <p><i class="fa-solid fa-phone"></i></i><a href="">Tư vấn: 0927.133.332</a></p>
                 <p><i class="fa-solid fa-phone"></i></i><a href="">CSKH: 0384.770.171</a></p>
                 <p><i class="fa-solid fa-envelope"></i></i><a href=""></a>huong.pv.hust.vn@gmail.com</p>
                 <p class="modal-desc">

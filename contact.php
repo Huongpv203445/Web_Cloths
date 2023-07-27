@@ -1,5 +1,5 @@
 <?php $pageTitle='Contact | ROMAN'; ?>
-<?php require_once 'header.php' ?>; 
+<?php require_once 'header.php'; ?>
 
 
     <!-- MAIN CONTACT -->
@@ -51,29 +51,30 @@
             </div>
             <div class="modal-left">
                 <h1>nhắn cho chúng tôi</h1>
-                <form class="modal-form" action="">
+                <form class="modal-form" action="sendContact.php" method = "POST">
+                <input type="text" name = "contact" style = "display:none;">
                     <div class="required">
                         <div>
                             <label for="">Họ tên</label>
-                            <input type="text" placeholder="Họ tên..." required>
+                            <input type="text" placeholder="Họ tên..." name = "name" required>
                         </div>
                         <div>
                             <label for="">Email</label>
-                            <input type="email" placeholder="Email..." required>
+                            <input type="email" placeholder="Email..." name = "email" required>
                         </div>
                     </div>
                     <div class="optional">
                         <div>
                             <label for="">SĐT (nếu có)</label>
-                            <input type="text" placeholder="Số điện thoại...">
+                            <input type="text" placeholder="Số điện thoại..." name = "phone">
                         </div>
                         <div>
                             <label for="">Địa chỉ (nếu có)</label>
-                            <input type="text" placeholder="Địa chỉ...">
+                            <input type="text" placeholder="Địa chỉ..." name = "address">
                         </div>
                     </div>
                     <label for="">Nội dung</label>
-                    <textarea name="" id="" cols="30" rows="10">
+                    <textarea id="" cols="30" rows="10" name="content">
     
                     </textarea>
                     <button class="modal-btn" type="">Gửi tin nhắn</button>

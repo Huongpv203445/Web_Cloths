@@ -13,6 +13,8 @@ $account = new Account;
 $loadProduct = new Products;
 $cart = new Cart;
 $orders = new Order;
+$contact = new Contact;
+
 
 
 $cartItems = isset($_SESSION['userLoggedIn']) ? json_encode($cart->getAllItems($_SESSION['userLoggedIn'])) : json_encode(array());
